@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Turismo en Salinas</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      text-align: center;
+      background: url("https://www.baconismagic.ca/wp-content/uploads/2022/08/Humpback-Whale-Salinas-Ecuador.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 32px;
+    }
+
+    p {
+      margin-bottom: 30px;
+      color: #ddd;
+    }
+
+    .contenedor {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      padding: 30px 15px;
+      border-radius: 18px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 120px;
+      color: white;
+    }
+
+    .bolsillo {
+      background: linear-gradient(135deg, #0077ff, #00c6ff);
+    }
+
+    .avistamiento {
+      background: linear-gradient(135deg, #00bfa6, #1de9b6);
+    }
+
+    .tiktok {
+      background: rgb(104, 103, 103);
+    }
+
+    .gastronomia {
+      background: linear-gradient(135deg, #ff7a18, #ffb347);
+    }
+
+    .airbnb {
+      background: linear-gradient(135deg, #f10525, #ffb347);
+    }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.05);
+      opacity: 0.9;
+    }
+
+    footer {
+      margin-top: 30px;
+      color: #ccc;
+      font-size: 12px;
+    }
+
+    /* aviso pequeño de música */
+    .music-info {
+      position: fixed;
+      bottom: 15px;
+      left: 15px;
+      background: rgba(0,0,0,0.6);
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 12px;
+      color: #fff;
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 22px; }
+      p { font-size: 14px; }
+
+      .overlay { padding: 15px; }
+
+      .contenedor {
+        grid-template-columns: 1fr;
+        padding: 10px;
+      }
+
+      .card {
+        height: 90px;
+        font-size: 14px;
+        padding: 15px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🎵 MÚSICA -->
+  <audio id="musica" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/10/audio_7f2c2b5a8b.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="overlay">
+
+    <h1>🌴 Turismo en Salinas, Ecuador</h1>
+    <p>Explora guías turísticas, gastronomía y experiencias únicas</p>
+
+    <div class="contenedor">
+
+      <a href="https://www.salinas.gob.ec/images/salinas/Turismo/Guia%20bolsillo/guia%20de%20bolsillo%20espan%CC%83ol%20lectura.pdf" target="_blank" class="card bolsillo">
+        📘 Guía de Bolsillo
+      </a>
+
+      <a href="https://www.salinas.gob.ec/index.php/guia-de-ballenas" target="_blank" class="card avistamiento">
+        🐋 Avistamiento
+      </a>
+
+      <a href="https://www.tiktok.com/@xavier25_/video/7456502408068304134" target="_blank" class="card tiktok">
+        🎥 Ver TikTok
+      </a>
+
+      <a href="https://www.salinas.gob.ec/index.php/guia-gastronomica-salinas" target="_blank" class="card gastronomia">
+        🍽 Gastronomía
+      </a>
+
+      <a href="https://www.airbnb.com.ec/rooms/44122220?source_impression_id=p3_1777397010_P3WuXjnX4GG7GdIo" target="_blank" class="card airbnb">
+        🏡 Airbnb
+      </a>
+
+    </div>
+
+    <footer>
+      Turismo digital Salinas ©
+    </footer>
+
+  </div>
+
+  <!-- ℹ️ aviso -->
+  <div class="music-info">
+    🎵 Toca la pantalla para activar la música
+  </div>
+
+  <script>
+    const musica = document.getElementById("musica");
+
+    function playMusic() {
+      musica.play().catch(() => {
+        console.log("Bloqueado hasta interacción del usuario");
+      });
+    }
+
+    // intenta al cargar
+    window.addEventListener("load", playMusic);
+
+    // se activa con el primer toque real del usuario
+    document.addEventListener("click", playMusic, { once: true });
+    document.addEventListener("touchstart", playMusic, { once: true });
+  </script>
+
+</body>
+</html>
